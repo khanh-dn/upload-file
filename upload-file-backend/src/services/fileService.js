@@ -5,17 +5,27 @@ const path = require("path");
 const cloudinary = require("cloudinary").v2;
 
 const uploadFile = async (file) => {
+  console.log("File received in service:", file);
+
   const savedFile = await fileRepository.createFile({
     filename: file.originalname,
     mimetype: file.mimetype,
     size: file.size,
     storagePath: file.path,
-    cloudinaryUrl: file.cloudinaryUrl,
     status: "PENDING",
   });
 
+  console.log("File saved in DB:", savedFile);
+
   // Đẩy vào queue để xử lý
-  await queueRepository.addToQueue({ fileId: savedFile.id, status: "PENDING" });
+  try {
+    await queueRepository.addToQueue({
+      fileId: savedFile.id,
+      status: "PENDING",
+    });
+  } catch (err) {
+    console.error("❌ Lỗi khi thêm vào queue:", err);
+  }
 
   return savedFile;
 };

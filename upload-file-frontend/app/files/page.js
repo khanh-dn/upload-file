@@ -18,17 +18,31 @@ export default function FileList() {
       {files.map((file) => (
         <div key={file.id} className="border p-2 mt-2">
           <p>{file.filename}</p>
+
+          {/* Nếu là ảnh, dùng next/image */}
           {file.mimetype.startsWith("image/") ? (
             <Image
-              src={`http://localhost:3000/${file.storagePath}`}
+              src={file.storagePath}
               alt={file.filename}
               width={500} // Thay bằng kích thước thực tế
               height={300}
               className="w-40 h-auto mt-2"
             />
+          ) : file.mimetype.startsWith("video/") ? (
+            // Nếu là video, hiển thị bằng thẻ <video>
+            <video
+              controls
+              width="500"
+              height="auto"
+              className="mt-2 rounded-lg shadow-lg"
+            >
+              <source src={file.storagePath} type={file.mimetype} />
+              Trình duyệt của bạn không hỗ trợ phát video.
+            </video>
           ) : (
+            // Nếu là file khác, chỉ hiển thị link tải về
             <a
-              href={`http://localhost:3000/${file.storagePath}`}
+              href={file.storagePath}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 underline"

@@ -1,7 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-const crypto = require("crypto");
-
 const fileService = require("../services/fileService");
 const upload = require("../services/multerService");
 
@@ -11,8 +7,7 @@ const uploadFile = async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    console.log("Body:", JSON.stringify(req.body, null, 2));
-    console.log("File received:", JSON.stringify(req.file, null, 2));
+    console.log("File received:", req.file); // Debug file
 
     const uploadedFile = await fileService.uploadFile(req.file);
 
@@ -21,7 +16,7 @@ const uploadFile = async (req, res) => {
       file: uploadedFile,
     });
   } catch (err) {
-    console.error("❌ Upload Error:", err.message); // Ghi lỗi vào console
+    console.error("❌ Upload Error:", err); // Ghi lỗi vào console
     res.status(500).json({ error: err.message || "Internal Server Error" });
   }
 };

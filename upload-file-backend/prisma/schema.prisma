@@ -19,7 +19,6 @@ model File {
   mimetype    String
   size        Int
   storagePath String
-  cloudinaryUrl String?
   status      FileStatus @default(PENDING)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
