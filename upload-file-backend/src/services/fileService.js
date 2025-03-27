@@ -2,6 +2,7 @@ const fileRepository = require("../repositories/fileRepository");
 const queueRepository = require("../repositories/processingQueueRepository");
 const fs = require("fs");
 const path = require("path");
+const cloudinary = require("cloudinary").v2;
 
 const uploadFile = async (file) => {
   const savedFile = await fileRepository.createFile({
@@ -9,6 +10,7 @@ const uploadFile = async (file) => {
     mimetype: file.mimetype,
     size: file.size,
     storagePath: file.path,
+    cloudinaryUrl: file.cloudinaryUrl,
     status: "PENDING",
   });
 
@@ -23,8 +25,8 @@ const getFileById = async (id) => {
 };
 
 const getAllFile = async () => {
-    return await fileRepository.getAllFile();
-}
+  return await fileRepository.getAllFile();
+};
 
 const deleteFile = async (id) => {
   const file = await fileRepository.getFileById(id);

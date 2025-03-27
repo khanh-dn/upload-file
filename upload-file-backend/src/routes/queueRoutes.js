@@ -1,8 +1,8 @@
 const express = require("express");
-const { processQueue } = require("../controllers/queueController");
+const queueController = require("../controllers/queueController");
 
 const router = express.Router();
 
-router.post("/process", processQueue);
+router.post("/process", queueController.processQueue);
 
 module.exports = router;

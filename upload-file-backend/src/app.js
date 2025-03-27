@@ -1,10 +1,12 @@
 const express = require("express");
 const path = require("path");
-const fileRoutes = require("./routes/fileRoutes");
-const queueRoutes = require("./routes/queueRoutes");
 const cors = require("cors");
 
+const fileRoutes = require("./routes/fileRoutes");
+const queueRoutes = require("./routes/queueRoutes");
+
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 

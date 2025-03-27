@@ -116,7 +116,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UploadPage)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* __next_internal_client_entry_do_not_use__ default auto */ \n\nfunction UploadPage() {\n    const [file, setFile] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    const [message, setMessage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(\"\");\n    const handleUpload = async ()=>{\n        if (!file) {\n            setMessage(\"Vui lòng chọn file\");\n            return;\n        }\n        const formData = new FormData();\n        formData.append(\"file\", file);\n        const response = await fetch(\"http://localhost:3000/api/files/upload\", {\n            method: \"POST\",\n            body: formData\n        });\n        const data = await response.json();\n        setMessage(data.message);\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"p-5\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                className: \"text-xl font-bold\",\n                children: \"Upload File\"\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 28,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                type: \"file\",\n                onChange: (e)=>setFile(e.target.files[0]),\n                className: \"border p-2\"\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 29,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                onClick: handleUpload,\n                className: \"bg-blue-500 text-white px-4 py-2 rounded ml-2\",\n                children: \"Upload\"\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 34,\n                columnNumber: 7\n            }, this),\n            message && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                className: \"mt-2 text-green-500\",\n                children: message\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 40,\n                columnNumber: 19\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n        lineNumber: 27,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9hcHAvdXBsb2FkL3BhZ2UuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQ2lDO0FBRWxCLFNBQVNDO0lBQ3RCLE1BQU0sQ0FBQ0MsTUFBTUMsUUFBUSxHQUFHSCwrQ0FBUUEsQ0FBQztJQUNqQyxNQUFNLENBQUNJLFNBQVNDLFdBQVcsR0FBR0wsK0NBQVFBLENBQUM7SUFFdkMsTUFBTU0sZUFBZTtRQUNuQixJQUFJLENBQUNKLE1BQU07WUFDVEcsV0FBVztZQUNYO1FBQ0Y7UUFFQSxNQUFNRSxXQUFXLElBQUlDO1FBQ3JCRCxTQUFTRSxNQUFNLENBQUMsUUFBUVA7UUFFeEIsTUFBTVEsV0FBVyxNQUFNQyxNQUFNLDBDQUEwQztZQUNyRUMsUUFBUTtZQUNSQyxNQUFNTjtRQUNSO1FBRUEsTUFBTU8sT0FBTyxNQUFNSixTQUFTSyxJQUFJO1FBQ2hDVixXQUFXUyxLQUFLVixPQUFPO0lBQ3pCO0lBRUEscUJBQ0UsOERBQUNZO1FBQUlDLFdBQVU7OzBCQUNiLDhEQUFDQztnQkFBR0QsV0FBVTswQkFBb0I7Ozs7OzswQkFDbEMsOERBQUNFO2dCQUNDQyxNQUFLO2dCQUNMQyxVQUFVLENBQUNDLElBQU1uQixRQUFRbUIsRUFBRUMsTUFBTSxDQUFDQyxLQUFLLENBQUMsRUFBRTtnQkFDMUNQLFdBQVU7Ozs7OzswQkFFWiw4REFBQ1E7Z0JBQ0NDLFNBQVNwQjtnQkFDVFcsV0FBVTswQkFDWDs7Ozs7O1lBR0FiLHlCQUFXLDhEQUFDdUI7Z0JBQUVWLFdBQVU7MEJBQXVCYjs7Ozs7Ozs7Ozs7O0FBR3REIiwic291cmNlcyI6WyIvaG9tZS9iYWNrZW5kLTAxL3VwbG9hZC1maWxlLXByb2plY3QvdXBsb2FkLWZpbGUtZnJvbnRlbmQvYXBwL3VwbG9hZC9wYWdlLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIGNsaWVudFwiO1xuaW1wb3J0IHsgdXNlU3RhdGUgfSBmcm9tIFwicmVhY3RcIjtcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gVXBsb2FkUGFnZSgpIHtcbiAgY29uc3QgW2ZpbGUsIHNldEZpbGVdID0gdXNlU3RhdGUobnVsbCk7XG4gIGNvbnN0IFttZXNzYWdlLCBzZXRNZXNzYWdlXSA9IHVzZVN0YXRlKFwiXCIpO1xuXG4gIGNvbnN0IGhhbmRsZVVwbG9hZCA9IGFzeW5jICgpID0+IHtcbiAgICBpZiAoIWZpbGUpIHtcbiAgICAgIHNldE1lc3NhZ2UoXCJWdWkgbMOybmcgY2jhu41uIGZpbGVcIik7XG4gICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgY29uc3QgZm9ybURhdGEgPSBuZXcgRm9ybURhdGEoKTtcbiAgICBmb3JtRGF0YS5hcHBlbmQoXCJmaWxlXCIsIGZpbGUpO1xuXG4gICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChcImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9hcGkvZmlsZXMvdXBsb2FkXCIsIHtcbiAgICAgIG1ldGhvZDogXCJQT1NUXCIsXG4gICAgICBib2R5OiBmb3JtRGF0YSxcbiAgICB9KTtcblxuICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXNwb25zZS5qc29uKCk7XG4gICAgc2V0TWVzc2FnZShkYXRhLm1lc3NhZ2UpO1xuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJwLTVcIj5cbiAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtYm9sZFwiPlVwbG9hZCBGaWxlPC9oMT5cbiAgICAgIDxpbnB1dFxuICAgICAgICB0eXBlPVwiZmlsZVwiXG4gICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0RmlsZShlLnRhcmdldC5maWxlc1swXSl9XG4gICAgICAgIGNsYXNzTmFtZT1cImJvcmRlciBwLTJcIlxuICAgICAgLz5cbiAgICAgIDxidXR0b25cbiAgICAgICAgb25DbGljaz17aGFuZGxlVXBsb2FkfVxuICAgICAgICBjbGFzc05hbWU9XCJiZy1ibHVlLTUwMCB0ZXh0LXdoaXRlIHB4LTQgcHktMiByb3VuZGVkIG1sLTJcIlxuICAgICAgPlxuICAgICAgICBVcGxvYWRcbiAgICAgIDwvYnV0dG9uPlxuICAgICAge21lc3NhZ2UgJiYgPHAgY2xhc3NOYW1lPVwibXQtMiB0ZXh0LWdyZWVuLTUwMFwiPnttZXNzYWdlfTwvcD59XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwibmFtZXMiOlsidXNlU3RhdGUiLCJVcGxvYWRQYWdlIiwiZmlsZSIsInNldEZpbGUiLCJtZXNzYWdlIiwic2V0TWVzc2FnZSIsImhhbmRsZVVwbG9hZCIsImZvcm1EYXRhIiwiRm9ybURhdGEiLCJhcHBlbmQiLCJyZXNwb25zZSIsImZldGNoIiwibWV0aG9kIiwiYm9keSIsImRhdGEiLCJqc29uIiwiZGl2IiwiY2xhc3NOYW1lIiwiaDEiLCJpbnB1dCIsInR5cGUiLCJvbkNoYW5nZSIsImUiLCJ0YXJnZXQiLCJmaWxlcyIsImJ1dHRvbiIsIm9uQ2xpY2siLCJwIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./app/upload/page.js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UploadPage)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"(ssr)/./node_modules/axios/lib/axios.js\");\n/* __next_internal_client_entry_do_not_use__ default auto */ \n\n\nfunction UploadPage() {\n    const [file, setFile] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    const [message, setMessage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(\"\");\n    const [error, setError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(\"\");\n    const [progress, setProgress] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);\n    const fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);\n    const handleFileChange = (e)=>{\n        setMessage(\"\");\n        const selectedFile = e.target.files[0];\n        console.log(\"Type: \" + selectedFile.type);\n        if (!selectedFile) {\n            setError(\"Vui lòng chọn file\");\n            return;\n        }\n        const allowedTypes = [\n            \"image/\",\n            \"video/\"\n        ];\n        if (!allowedTypes.some((type)=>selectedFile.type.startsWith(type))) {\n            setError(\"Chỉ hỗ trợ upload ảnh hoặc video\");\n            setFile(null);\n            return;\n        }\n        setFile(selectedFile);\n        setError(\"\");\n        setProgress(0);\n    };\n    const handleUpload = async ()=>{\n        setMessage(\"\");\n        if (!file) {\n            setMessage(\"Vui lòng chọn file\");\n            return;\n        }\n        const formData = new FormData();\n        formData.append(\"file\", file);\n        try {\n            const response = await axios__WEBPACK_IMPORTED_MODULE_2__[\"default\"].post(\"http://localhost:3000/api/files/upload\", formData, {\n                headers: {\n                    \"Content-Type\": \"multipart/form-data\"\n                },\n                onUploadProgress: (progressEvent)=>{\n                    const percent = Math.round(progressEvent.loaded * 100 / progressEvent.total);\n                    setProgress(percent);\n                }\n            });\n            setMessage(response.data.message);\n            setFile(null);\n            setProgress(0);\n            setError(\"\");\n            if (fileInputRef.current) {\n                fileInputRef.current.value = \"\";\n            }\n        } catch (err) {\n            console.error(\"Lỗi upload:\", err);\n            // Lấy lỗi chi tiết từ response của server\n            if (err.response) {\n                setError(`Lỗi từ server: ${err.response.data.error || \"Không rõ nguyên nhân\"}`);\n            } else if (err.request) {\n                setError(\"Không kết nối được đến server. Kiểm tra lại kết nối mạng.\");\n            } else {\n                setError(\"Lỗi không xác định: \" + err.message);\n            }\n            setProgress(0);\n        }\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"p-5\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                className: \"text-xl font-bold\",\n                children: \"Upload File\"\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 86,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                type: \"file\",\n                onChange: handleFileChange,\n                ref: fileInputRef,\n                className: \"border p-2\"\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 87,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                onClick: handleUpload,\n                className: \"bg-blue-500 text-white px-4 py-2 rounded ml-2\",\n                children: \"Upload\"\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 93,\n                columnNumber: 7\n            }, this),\n            progress > 0 && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                className: \"mt-2 text-blue-500\",\n                children: [\n                    \"Đang upload: \",\n                    progress,\n                    \"%\"\n                ]\n            }, void 0, true, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 100,\n                columnNumber: 9\n            }, this),\n            message && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                className: \"mt-2 text-green-500\",\n                children: message\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 102,\n                columnNumber: 19\n            }, this),\n            error && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                className: \"mt-2 text-red-500\",\n                children: error\n            }, void 0, false, {\n                fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n                lineNumber: 103,\n                columnNumber: 17\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"/home/backend-01/upload-file-project/upload-file-frontend/app/upload/page.js\",\n        lineNumber: 85,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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c291cmNlcyI6WyIvaG9tZS9iYWNrZW5kLTAxL3VwbG9hZC1maWxlLXByb2plY3QvdXBsb2FkLWZpbGUtZnJvbnRlbmQvYXBwL3VwbG9hZC9wYWdlLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIGNsaWVudFwiO1xuaW1wb3J0IHsgdXNlU3RhdGUsIHVzZVJlZiB9IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IGF4aW9zIGZyb20gXCJheGlvc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBVcGxvYWRQYWdlKCkge1xuICBjb25zdCBbZmlsZSwgc2V0RmlsZV0gPSB1c2VTdGF0ZShudWxsKTtcbiAgY29uc3QgW21lc3NhZ2UsIHNldE1lc3NhZ2VdID0gdXNlU3RhdGUoXCJcIik7XG4gIGNvbnN0IFtlcnJvciwgc2V0RXJyb3JdID0gdXNlU3RhdGUoXCJcIik7XG4gIGNvbnN0IFtwcm9ncmVzcywgc2V0UHJvZ3Jlc3NdID0gdXNlU3RhdGUoMCk7XG4gIGNvbnN0IGZpbGVJbnB1dFJlZiA9IHVzZVJlZihudWxsKTtcblxuICBjb25zdCBoYW5kbGVGaWxlQ2hhbmdlID0gKGUpID0+IHtcbiAgICBzZXRNZXNzYWdlKFwiXCIpO1xuICAgIGNvbnN0IHNlbGVjdGVkRmlsZSA9IGUudGFyZ2V0LmZpbGVzWzBdO1xuICAgIGNvbnNvbGUubG9nKFwiVHlwZTogXCIgKyBzZWxlY3RlZEZpbGUudHlwZSk7XG4gICAgaWYgKCFzZWxlY3RlZEZpbGUpIHtcbiAgICAgIHNldEVycm9yKFwiVnVpIGzDsm5nIGNo4buNbiBmaWxlXCIpO1xuICAgICAgcmV0dXJuO1xuICAgIH1cblxuICAgIGNvbnN0IGFsbG93ZWRUeXBlcyA9IFtcImltYWdlL1wiLCBcInZpZGVvL1wiXTtcbiAgICBpZiAoIWFsbG93ZWRUeXBlcy5zb21lKCh0eXBlKSA9PiBzZWxlY3RlZEZpbGUudHlwZS5zdGFydHNXaXRoKHR5cGUpKSkge1xuICAgICAgc2V0RXJyb3IoXCJDaOG7iSBo4buXIHRy4bujIHVwbG9hZCDhuqNuaCBob+G6t2MgdmlkZW9cIik7XG4gICAgICBzZXRGaWxlKG51bGwpO1xuICAgICAgcmV0dXJuO1xuICAgIH1cblxuICAgIHNldEZpbGUoc2VsZWN0ZWRGaWxlKTtcbiAgICBzZXRFcnJvcihcIlwiKTtcbiAgICBzZXRQcm9ncmVzcygwKTtcbiAgfTtcblxuICBjb25zdCBoYW5kbGVVcGxvYWQgPSBhc3luYyAoKSA9PiB7XG4gICAgc2V0TWVzc2FnZShcIlwiKTtcbiAgICBpZiAoIWZpbGUpIHtcbiAgICAgIHNldE1lc3NhZ2UoXCJWdWkgbMOybmcgY2jhu41uIGZpbGVcIik7XG4gICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgY29uc3QgZm9ybURhdGEgPSBuZXcgRm9ybURhdGEoKTtcbiAgICBmb3JtRGF0YS5hcHBlbmQoXCJmaWxlXCIsIGZpbGUpO1xuXG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgYXhpb3MucG9zdChcbiAgICAgICAgXCJodHRwOi8vbG9jYWxob3N0OjMwMDAvYXBpL2ZpbGVzL3VwbG9hZFwiLFxuICAgICAgICBmb3JtRGF0YSxcbiAgICAgICAge1xuICAgICAgICAgIGhlYWRlcnM6IHsgXCJDb250ZW50LVR5cGVcIjogXCJtdWx0aXBhcnQvZm9ybS1kYXRhXCIgfSxcbiAgICAgICAgICBvblVwbG9hZFByb2dyZXNzOiAocHJvZ3Jlc3NFdmVudCkgPT4ge1xuICAgICAgICAgICAgY29uc3QgcGVyY2VudCA9IE1hdGgucm91bmQoXG4gICAgICAgICAgICAgIChwcm9ncmVzc0V2ZW50LmxvYWRlZCAqIDEwMCkgLyBwcm9ncmVzc0V2ZW50LnRvdGFsXG4gICAgICAgICAgICApO1xuICAgICAgICAgICAgc2V0UHJvZ3Jlc3MocGVyY2VudCk7XG4gICAgICAgICAgfSxcbiAgICAgICAgfVxuICAgICAgKTtcblxuICAgICAgc2V0TWVzc2FnZShyZXNwb25zZS5kYXRhLm1lc3NhZ2UpO1xuICAgICAgc2V0RmlsZShudWxsKTtcbiAgICAgIHNldFByb2dyZXNzKDApO1xuICAgICAgc2V0RXJyb3IoXCJcIik7XG5cbiAgICAgIGlmIChmaWxlSW5wdXRSZWYuY3VycmVudCkge1xuICAgICAgICBmaWxlSW5wdXRSZWYuY3VycmVudC52YWx1ZSA9IFwiXCI7XG4gICAgICB9XG4gICAgfSBjYXRjaCAoZXJyKSB7XG4gICAgICBjb25zb2xlLmVycm9yKFwiTOG7l2kgdXBsb2FkOlwiLCBlcnIpO1xuXG4gICAgICAvLyBM4bqleSBs4buXaSBjaGkgdGnhur90IHThu6sgcmVzcG9uc2UgY+G7p2Egc2VydmVyXG4gICAgICBpZiAoZXJyLnJlc3BvbnNlKSB7XG4gICAgICAgIHNldEVycm9yKFxuICAgICAgICAgIGBM4buXaSB04burIHNlcnZlcjogJHtlcnIucmVzcG9uc2UuZGF0YS5lcnJvciB8fCBcIktow7RuZyByw7Ugbmd1ecOqbiBuaMOiblwifWBcbiAgICAgICAgKTtcbiAgICAgIH0gZWxzZSBpZiAoZXJyLnJlcXVlc3QpIHtcbiAgICAgICAgc2V0RXJyb3IoXCJLaMO0bmcga+G6v3QgbuG7kWkgxJHGsOG7o2MgxJHhur9uIHNlcnZlci4gS2nhu4NtIHRyYSBs4bqhaSBr4bq/dCBu4buRaSBt4bqhbmcuXCIpO1xuICAgICAgfSBlbHNlIHtcbiAgICAgICAgc2V0RXJyb3IoXCJM4buXaSBraMO0bmcgeMOhYyDEkeG7i25oOiBcIiArIGVyci5tZXNzYWdlKTtcbiAgICAgIH1cblxuICAgICAgc2V0UHJvZ3Jlc3MoMCk7XG4gICAgfVxuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJwLTVcIj5cbiAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtYm9sZFwiPlVwbG9hZCBGaWxlPC9oMT5cbiAgICAgIDxpbnB1dFxuICAgICAgICB0eXBlPVwiZmlsZVwiXG4gICAgICAgIG9uQ2hhbmdlPXtoYW5kbGVGaWxlQ2hhbmdlfVxuICAgICAgICByZWY9e2ZpbGVJbnB1dFJlZn1cbiAgICAgICAgY2xhc3NOYW1lPVwiYm9yZGVyIHAtMlwiXG4gICAgICAvPlxuICAgICAgPGJ1dHRvblxuICAgICAgICBvbkNsaWNrPXtoYW5kbGVVcGxvYWR9XG4gICAgICAgIGNsYXNzTmFtZT1cImJnLWJsdWUtNTAwIHRleHQtd2hpdGUgcHgtNCBweS0yIHJvdW5kZWQgbWwtMlwiXG4gICAgICA+XG4gICAgICAgIFVwbG9hZFxuICAgICAgPC9idXR0b24+XG4gICAgICB7cHJvZ3Jlc3MgPiAwICYmIChcbiAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtMiB0ZXh0LWJsdWUtNTAwXCI+xJBhbmcgdXBsb2FkOiB7cHJvZ3Jlc3N9JTwvcD5cbiAgICAgICl9XG4gICAgICB7bWVzc2FnZSAmJiA8cCBjbGFzc05hbWU9XCJtdC0yIHRleHQtZ3JlZW4tNTAwXCI+e21lc3NhZ2V9PC9wPn1cbiAgICAgIHtlcnJvciAmJiA8cCBjbGFzc05hbWU9XCJtdC0yIHRleHQtcmVkLTUwMFwiPntlcnJvcn08L3A+fVxuICAgIDwvZGl2PlxuICApO1xufVxuIl0sIm5hbWVzIjpbInVzZVN0YXRlIiwidXNlUmVmIiwiYXhpb3MiLCJVcGxvYWRQYWdlIiwiZmlsZSIsInNldEZpbGUiLCJtZXNzYWdlIiwic2V0TWVzc2FnZSIsImVycm9yIiwic2V0RXJyb3IiLCJwcm9ncmVzcyIsInNldFByb2dyZXNzIiwiZmlsZUlucHV0UmVmIiwiaGFuZGxlRmlsZUNoYW5nZSIsImUiLCJzZWxlY3RlZEZpbGUiLCJ0YXJnZXQiLCJmaWxlcyIsImNvbnNvbGUiLCJsb2ciLCJ0eXBlIiwiYWxsb3dlZFR5cGVzIiwic29tZSIsInN0YXJ0c1dpdGgiLCJoYW5kbGVVcGxvYWQiLCJmb3JtRGF0YSIsIkZvcm1EYXRhIiwiYXBwZW5kIiwicmVzcG9uc2UiLCJwb3N0IiwiaGVhZGVycyIsIm9uVXBsb2FkUHJvZ3Jlc3MiLCJwcm9ncmVzc0V2ZW50IiwicGVyY2VudCIsIk1hdGgiLCJyb3VuZCIsImxvYWRlZCIsInRvdGFsIiwiZGF0YSIsImN1cnJlbnQiLCJ2YWx1ZSIsImVyciIsInJlcXVlc3QiLCJkaXYiLCJjbGFzc05hbWUiLCJoMSIsImlucHV0Iiwib25DaGFuZ2UiLCJyZWYiLCJidXR0b24iLCJvbkNsaWNrIiwicCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./app/upload/page.js\n");
 
 /***/ }),
 
@@ -194,6 +194,72 @@ module.exports = require("next/dist/server/app-render/work-unit-async-storage.ex
 
 /***/ }),
 
+/***/ "assert":
+/*!*************************!*\
+  !*** external "assert" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("assert");
+
+/***/ }),
+
+/***/ "crypto":
+/*!*************************!*\
+  !*** external "crypto" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("crypto");
+
+/***/ }),
+
+/***/ "events":
+/*!*************************!*\
+  !*** external "events" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("events");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "http":
+/*!***********************!*\
+  !*** external "http" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ "https":
+/*!************************!*\
+  !*** external "https" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
 /***/ "next/dist/compiled/next-server/app-page.runtime.dev.js":
 /*!*************************************************************************!*\
   !*** external "next/dist/compiled/next-server/app-page.runtime.dev.js" ***!
@@ -202,6 +268,17 @@ module.exports = require("next/dist/server/app-render/work-unit-async-storage.ex
 
 "use strict";
 module.exports = require("next/dist/compiled/next-server/app-page.runtime.dev.js");
+
+/***/ }),
+
+/***/ "os":
+/*!*********************!*\
+  !*** external "os" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("os");
 
 /***/ }),
 
@@ -216,6 +293,28 @@ module.exports = require("path");
 
 /***/ }),
 
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "tty":
+/*!**********************!*\
+  !*** external "tty" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
+
+/***/ }),
+
 /***/ "url":
 /*!**********************!*\
   !*** external "url" ***!
@@ -224,6 +323,28 @@ module.exports = require("path");
 
 "use strict";
 module.exports = require("url");
+
+/***/ }),
+
+/***/ "util":
+/*!***********************!*\
+  !*** external "util" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("util");
+
+/***/ }),
+
+/***/ "zlib":
+/*!***********************!*\
+  !*** external "zlib" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
 
 /***/ })
 
@@ -234,7 +355,7 @@ module.exports = require("url");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fupload%2Fpage&page=%2Fupload%2Fpage&appPaths=%2Fupload%2Fpage&pagePath=private-next-app-dir%2Fupload%2Fpage.js&appDir=%2Fhome%2Fbackend-01%2Fupload-file-project%2Fupload-file-frontend%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2Fhome%2Fbackend-01%2Fupload-file-project%2Fupload-file-frontend&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/axios","vendor-chunks/asynckit","vendor-chunks/math-intrinsics","vendor-chunks/es-errors","vendor-chunks/call-bind-apply-helpers","vendor-chunks/debug","vendor-chunks/get-proto","vendor-chunks/mime-db","vendor-chunks/has-symbols","vendor-chunks/gopd","vendor-chunks/function-bind","vendor-chunks/form-data","vendor-chunks/follow-redirects","vendor-chunks/supports-color","vendor-chunks/proxy-from-env","vendor-chunks/ms","vendor-chunks/mime-types","vendor-chunks/hasown","vendor-chunks/has-tostringtag","vendor-chunks/has-flag","vendor-chunks/get-intrinsic","vendor-chunks/es-set-tostringtag","vendor-chunks/es-object-atoms","vendor-chunks/es-define-property","vendor-chunks/dunder-proto","vendor-chunks/delayed-stream","vendor-chunks/combined-stream"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fupload%2Fpage&page=%2Fupload%2Fpage&appPaths=%2Fupload%2Fpage&pagePath=private-next-app-dir%2Fupload%2Fpage.js&appDir=%2Fhome%2Fbackend-01%2Fupload-file-project%2Fupload-file-frontend%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2Fhome%2Fbackend-01%2Fupload-file-project%2Fupload-file-frontend&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
 module.exports = __webpack_exports__;
 
 })();

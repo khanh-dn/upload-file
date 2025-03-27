@@ -1,11 +1,11 @@
 const express = require("express");
-const { uploadFile, getFileById, deleteFile, upload, getAllFileController } = require("../controllers/fileController");
+const fileController = require("../controllers/fileController");
 
 const router = express.Router();
 
-router.post("/upload", upload.single("file"), uploadFile);
-router.get("/:id", getFileById);
-router.delete("/:id", deleteFile);
-router.get("/",getAllFileController)
+router.post("/upload", fileController.upload.single("file"), fileController.uploadFile);
+router.get("/:id", fileController.getFileById);
+router.delete("/:id", fileController.deleteFile);
+router.get("/",fileController.getAllFile)
 
 module.exports = router;

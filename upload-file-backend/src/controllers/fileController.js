@@ -1,14 +1,28 @@
+const fs = require("fs");
+const path = require("path");
+const crypto = require("crypto");
+
 const fileService = require("../services/fileService");
 const upload = require("../services/multerService");
 
 const uploadFile = async (req, res) => {
   try {
-    if (!req.file) return res.status(400).json({ error: "No file uploaded" });
+    if (!req.file) {
+      return res.status(400).json({ error: "No file uploaded" });
+    }
 
-    const file = await fileService.uploadFile(req.file);
-    res.json({ message: "File uploaded successfully", file });
+    console.log("Body:", JSON.stringify(req.body, null, 2));
+    console.log("File received:", JSON.stringify(req.file, null, 2));
+
+    const uploadedFile = await fileService.uploadFile(req.file);
+
+    return res.status(201).json({
+      message: "Upload thành công",
+      file: uploadedFile,
+    });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error("❌ Upload Error:", err.message); // Ghi lỗi vào console
+    res.status(500).json({ error: err.message || "Internal Server Error" });
   }
 };
 
@@ -32,13 +46,19 @@ const deleteFile = async (req, res) => {
   }
 };
 
-const getAllFileController = async (req, res) => {
-    try {
-        const files = await fileService.getAllFile();
-        res.json(files)
-    } catch (error) {
-        res.status(500).json({ error: err.message });
-    }
-}
+const getAllFile = async (req, res) => {
+  try {
+    const files = await fileService.getAllFile();
+    res.json(files);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-module.exports = { uploadFile, getFileById, deleteFile, upload, getAllFileController };
+module.exports = {
+  uploadFile,
+  getFileById,
+  deleteFile,
+  upload,
+  getAllFile,
+};
