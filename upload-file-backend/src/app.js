@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const fileRoutes = require("./routes/fileRoutes");
 const queueRoutes = require("./routes/queueRoutes");
+const chunkRoutes = require("./routes/chunkRoutes")
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.use("/api/files", fileRoutes);
+app.use("/api/chunks", chunkRoutes);
 app.use("/api/queue", queueRoutes);
 
 module.exports = app;
