@@ -1,44 +1,35 @@
 const chunkService = require("../services/chunkService");
 
 const initializeUpload = async (req, res) => {
-  console.log("📢 Nhận yêu cầu khởi tạo upload:");
-  console.log("Tên file:", req.body.filename);
-  console.log("Loại file:", req.body.mimetype);
-  console.log("Kích thước file:", req.body.size);
+  console.log("📥 Nhận request từ frontend:", req.body);
   try {
-    const { filename, mimetype, size } = req.body;
-    if (!filename || !mimetype || !size) {
-      return res.status(400).json({ error: "Thiếu thông tin file" });
+    const { files } = req.body;
+
+    if (!files || !Array.isArray(files) || files.length === 0) {
+      return res.status(400).json({ error: "Danh sách file không hợp lệ" });
     }
 
-    const uploadId = await chunkService.initializeUpload(req.body);
+    // Xử lý từng file và tạo danh sách uploadId
+    const uploadIds = await Promise.all(
+      files.map((file) => chunkService.initializeUpload(file))
+    );
 
-    res.json({ uploadId });
+    res.json({ uploadIds });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
 const uploadChunk = async (req, res) => {
-  console.log(
-    `📥 Nhận chunk ${req.body.chunkIndex} cho uploadId ${req.body.uploadId}`
-  );
-  console.log(`Kích thước chunk: ${req.file.size} bytes`);
-
   try {
     const { uploadId, chunkIndex } = req.body;
-
-    if (!req.file) {
+    if (!req.file)
       return res.status(400).json({ error: "Không có chunk nào được nhận" });
-    }
-
-    const chunkSize = req.file.size;
 
     const result = await chunkService.uploadChunk(
       uploadId,
       parseInt(chunkIndex),
-      req.file.buffer,
-      chunkSize
+      req.file.path
     );
     res.json(result);
   } catch (err) {
@@ -47,17 +38,13 @@ const uploadChunk = async (req, res) => {
 };
 
 const checkUploadedChunks = async (req, res) => {
-  console.log(`🔍 Kiểm tra uploadId: ${req.params.uploadId}`);
-
   try {
     const { uploadId } = req.params;
-    if (!uploadId) {
-      return res.status(400).json({ error: "Thiếu uploadId" });
-    }
+    if (!uploadId) return res.status(400).json({ error: "Thiếu uploadId" });
 
-    const { uploadedChunks, totalChunks: totalChunksFromService } =
+    const { uploadedChunks, totalChunks } =
       await chunkService.checkUploadedChunks(uploadId);
-    res.json({ uploadedChunks, totalChunks: totalChunksFromService });
+    res.json({ uploadedChunks, totalChunks });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -66,13 +53,10 @@ const checkUploadedChunks = async (req, res) => {
 const completeUpload = async (req, res) => {
   try {
     const { uploadId } = req.body;
-    if (!uploadId) {
-      return res.status(400).json({ error: "Thiếu uploadId" });
-    }
+    if (!uploadId) return res.status(400).json({ error: "Thiếu uploadId" });
 
-    const fileUrl = await chunkService.mergeChunksAndUpload(uploadId);
-    console.log("📌 Final video URL:", fileUrl);
-    res.json({ message: "Upload completed", fileUrl });
+    const filePath = await chunkService.mergeChunksAndUpload(uploadId);
+    res.json({ message: "Upload hoàn tất", filePath });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

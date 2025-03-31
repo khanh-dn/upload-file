@@ -36,7 +36,10 @@ export default function FileList() {
               height="auto"
               className="mt-2 rounded-lg shadow-lg"
             >
-              <source src={file.storagePath} type={file.mimetype} />
+              <source
+                src={`http://localhost:3000${file.storagePath}`}
+                type={file.mimetype}
+              />
               Trình duyệt của bạn không hỗ trợ phát video.
             </video>
           ) : (

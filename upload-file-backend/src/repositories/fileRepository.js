@@ -1,4 +1,5 @@
 const File = require("../models/fileModel");
+const path = require("path");
 
 const createUploadRecord = async (filename, mimetype, size) => {
   return await File.create({
@@ -6,10 +7,11 @@ const createUploadRecord = async (filename, mimetype, size) => {
   });
 };
 
-const markUploadComplete = async (id, url) => {
+const markUploadComplete = async (id, filePath) => {
+  const relativePath = `/uploads/${path.basename(filePath)}`; // Chỉ lấy tên file
   return await File.update({
     where: { id },
-    data: { status: "COMPLETED", storagePath: url },
+    data: { status: "COMPLETED", storagePath: relativePath },
   });
 };
 
@@ -25,8 +27,15 @@ const deleteFile = async (id) => {
   return await File.delete({ where: { id } });
 };
 
-const getAllFile = async() => {
-    return await File.findMany();
-}
+const getAllFile = async () => {
+  return await File.findMany();
+};
 
-module.exports = { createFile, getFileById, deleteFile , getAllFile, createUploadRecord, markUploadComplete};
+module.exports = {
+  createFile,
+  getFileById,
+  deleteFile,
+  getAllFile,
+  createUploadRecord,
+  markUploadComplete,
+};

@@ -12,6 +12,11 @@ export default function UploadPage() {
   const fileInputRef = useRef(null);
 
   const initializeUploads = async (files) => {
+    console.log("📁 Files selected:", files);
+    if (!files || files.length === 0) {
+      setError("Vui lòng chọn file");
+      return;
+    }
     const fileData = files.map((file) => ({
       filename: file.name,
       mimetype: file.type,
