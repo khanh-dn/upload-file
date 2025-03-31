@@ -1,7 +1,7 @@
 const chunkService = require("../services/chunkService");
 
 const initializeUpload = async (req, res) => {
-  console.log("📥 Nhận request từ frontend:", req.body);
+  console.log("Nhận request từ frontend:", req.body);
   try {
     const { files } = req.body;
 

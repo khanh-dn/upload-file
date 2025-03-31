@@ -12,34 +12,56 @@ export default function UploadPage() {
   const fileInputRef = useRef(null);
 
   const initializeUploads = async (files) => {
-    console.log("📁 Files selected:", files);
     if (!files || files.length === 0) {
       setError("Vui lòng chọn file");
       return;
     }
-    const fileData = files.map((file) => ({
-      filename: file.name,
-      mimetype: file.type,
-      size: file.size,
-    }));
 
-    console.log("📤 Sending to server:", JSON.stringify({ files: fileData }));
+    const uploadIds = [];
 
-    try {
-      const initResponse = await axios.post(
-        "http://localhost:3000/api/chunks/initialize",
-        { files: fileData }
-      );
-      return initResponse.data.uploadIds;
-    } catch (err) {
-      throw new Error(`Lỗi khởi tạo upload: ${err.message}`);
+    for (const file of files) {
+      // Kiểm tra uploadId cũ trong localStorage
+      let uploadId = localStorage.getItem(`uploadId_${file.name}_${file.size}`);
+
+      if (uploadId) {
+        try {
+          // Kiểm tra xem uploadId này còn tồn tại trên server không
+          await axios.get(`http://localhost:3000/api/chunks/check/${uploadId}`);
+          uploadIds.push(uploadId);
+          continue; // Nếu còn tồn tại, tiếp tục upload
+        } catch (error) {
+          // Nếu không tìm thấy trên server, tạo uploadId mới
+          console.log(`UploadId ${uploadId} không hợp lệ, tạo mới.`);
+          localStorage.removeItem(`uploadId_${file.name}_${file.size}`);
+        }
+      }
+
+      // Nếu không có uploadId cũ hoặc uploadId không hợp lệ, tạo mới
+      try {
+        const initResponse = await axios.post(
+          "http://localhost:3000/api/chunks/initialize",
+          {
+            files: [
+              { filename: file.name, mimetype: file.type, size: file.size },
+            ],
+          }
+        );
+        uploadId = initResponse.data.uploadIds[0];
+        localStorage.setItem(`uploadId_${file.name}_${file.size}`, uploadId);
+        uploadIds.push(uploadId);
+      } catch (err) {
+        throw new Error(`Lỗi khởi tạo upload: ${err.message}`);
+      }
     }
+
+    return uploadIds;
   };
 
   const handleFileChange = (e) => {
     setMessage("");
     setError("");
     setProgressMap({});
+
     const selectedFiles = Array.from(e.target.files);
 
     if (selectedFiles.length === 0) {

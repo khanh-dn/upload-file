@@ -15,15 +15,18 @@ const initializeUpload = async ({ filename, mimetype, size }) => {
 
 // Upload từng chunk
 const uploadChunk = async (uploadId, chunkIndex, filePath) => {
-  return new Promise((resolve, reject) => {
-    try {
-      console.log(`✅ Chunk ${chunkIndex} uploaded successfully`);
-      resolve({ message: "Chunk uploaded", chunkIndex });
-    } catch (error) {
-      console.error("❌ Error saving chunk:", error);
-      reject(new Error(`Error saving chunk: ${error.message}`));
-    }
-  });
+  // Kiểm tra xem chunk này đã có trong DB chưa
+  const existingChunks = await chunkRepository.getUploadedChunks(uploadId);
+  if (existingChunks.includes(chunkIndex)) {
+    console.log(`Chunk ${chunkIndex} đã tồn tại, bỏ qua.`);
+    return { message: "Chunk đã tồn tại", chunkIndex };
+  }
+
+  // Nếu chưa có, lưu vào database và tiếp tục
+  await chunkRepository.saveChunk(uploadId, chunkIndex, filePath, 10_000_000);
+  console.log(`Chunk ${chunkIndex} uploaded successfully`);
+
+  return { message: "Chunk uploaded", chunkIndex };
 };
 
 // Kiểm tra các chunk đã upload
@@ -43,7 +46,7 @@ const mergeChunksAndUpload = async (uploadId) => {
   if (!file) throw new Error("Không tìm thấy file");
 
   const chunkDir = path.join(__dirname, `../../uploads/chunks/${uploadId}`);
-  const outputFilePath = path.join(__dirname, `../../uploads/${uploadId}.mp4`);
+  const outputFilePath = path.join(__dirname, `../../uploads/${uploadId}`);
 
   const chunkFiles = fs
     .readdirSync(chunkDir)
@@ -64,11 +67,11 @@ const mergeChunksAndUpload = async (uploadId) => {
   }
 
   outputStream.end(() => {
-    console.log("✅ Merge hoàn tất! File:", outputFilePath);
+    console.log("Merge hoàn tất! File:", outputFilePath);
 
     fileRepository.markUploadComplete(uploadId, outputFilePath);
-
     // Xóa chunk sau khi merge
+    chunkRepository.deleteFileChunk(uploadId);
     fs.rmSync(chunkDir, { recursive: true, force: true });
 
     return outputFilePath;

@@ -42,7 +42,9 @@ const deleteFile = async (id) => {
   const file = await fileRepository.getFileById(id);
   if (!file) throw new Error("File not found");
 
-  fs.unlinkSync(path.resolve(file.storagePath)); // Xóa file trên server
+  const filePath = path.resolve(__dirname, "../../uploads", file.id);
+
+  fs.unlinkSync(path.resolve(filePath)); // Xóa file trên server
   await fileRepository.deleteFile(id); // Xóa record trong DB
 
   return { message: "File deleted successfully" };

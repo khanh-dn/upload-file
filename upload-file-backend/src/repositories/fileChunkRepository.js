@@ -25,4 +25,8 @@ const createChunk = async (data) => {
   return await FileChunk.create({ data });
 };
 
-module.exports = { createChunk, saveChunk, getUploadedChunks };
+const deleteFileChunk = async (fileId) => {
+  return await FileChunk.deleteMany({ where: { fileId } });
+};
+
+module.exports = { createChunk, saveChunk, getUploadedChunks, deleteFileChunk };
